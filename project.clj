@@ -25,7 +25,7 @@
                  [binaryage/chromex "0.4.2" :scope "test"]
                  [binaryage/devtools "0.8.1" :scope "test"]
                  [cljs-http "0.1.41" :scope "test"]
-                 [figwheel "0.5.4-7" :scope "test"]
+                 [figwheel "0.5.5" :scope "test"]
                  [reforms "0.4.3" :scope "test"]
                  [rum "0.9.1" :scope "test"]
                  [rum-reforms "0.4.3" :scope "test"]
@@ -128,7 +128,7 @@
 
              :cljs
              {:plugins [[lein-cljsbuild "1.1.3"]
-                        [lein-figwheel "0.5.4-7"]]
+                        [lein-figwheel "0.5.5"]]
               :hooks   [leiningen.cljsbuild]}
 
              :test-runner
@@ -164,10 +164,10 @@
                                              :source-map-timestamp true}}
                            :scenarios01
                            {; HACK: we rely on figwheel's "rel=<timestamp>" into cljs url params, clean-urls tests depend on it
-                            :figwheel       {:server-port     7301
-                                             :server-logfile  ".figwheel_scenarios01.log"
-                                             :validate-config false
-                                             :repl            false}
+                            :figwheel       {:server-port          7301
+                                             :server-logfile       ".figwheel_scenarios01.log"
+                                             :validate-interactive :start
+                                             :repl                 false}
                             :notify-command ["scripts/cljsbuild-notify.sh" "scenarios01"]
                             :source-paths   ["src/settings"
                                              "src/project"
@@ -200,10 +200,10 @@
                                              :source-map-timestamp true}}}}}
 
              :marion-figwheel
-             {:figwheel {:server-port     7200
-                         :server-logfile  ".figwheel_marion.log"
-                         :validate-config false
-                         :repl            false}}
+             {:figwheel {:server-port          7200
+                         :server-logfile       ".figwheel_marion.log"
+                         :validate-interactive :start
+                         :repl                 false}}
 
              :marion
              {:cljsbuild {:builds
@@ -232,10 +232,10 @@
                                              :source-map             "test/marion/resources/unpacked/compiled/content_script/content_script.js.map"}}}}}
 
              :dirac-figwheel
-             {:figwheel {:server-port     7100
-                         :server-logfile  ".figwheel_dirac.log"
-                         :validate-config false
-                         :repl            false}}
+             {:figwheel {:server-port          7100
+                         :server-logfile       ".figwheel_dirac.log"
+                         :validate-interactive :start
+                         :repl                 false}}
 
              :dirac-unpacked
              {:cljsbuild {:builds
